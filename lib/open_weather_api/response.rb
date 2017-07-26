@@ -1,5 +1,7 @@
 module OpenWeatherAPI
   class Response
+    VALID_STATUSES = 200..204
+
     def initialize(json_data, request_params)
       @data = json_data
       @request_params = request_params.stringify_keys
@@ -15,6 +17,10 @@ module OpenWeatherAPI
 
     def temperature_unit
       request_params['units']
+    end
+
+    def valid?
+      VALID_STATUSES.cover? data['cod']
     end
 
     private

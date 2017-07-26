@@ -1,6 +1,6 @@
 # CurrentWeather
 
-It is a simple application to show weather for random locations.
+It is a simple application to show weather for random or a specified location.
 
 ### Requirements:
 
@@ -11,6 +11,12 @@ It is a simple application to show weather for random locations.
 
 1. clone the project
 2. run `bundle install`
+
+### Run the project
+
+1. Run the server by the following command:
+    `WEATHER_API_ACCESS_ID=<api_key> bundle exec rails s`
+2. Visit `localhost:3000` in the browser and play with the solution.
 
 ### Test
 

@@ -1,3 +1,9 @@
 <%= link_to 'Show Random Weather', :random_weather %>
 
+<%= form_tag location_wise_weather_path, method: :get do %>
+  <%= text_field_tag :city, params[:city] %>
+  <%= text_field_tag :country_code, params[:country_code] %>
+  <%= submit_tag 'Show Weather' %>
+<% end %>
+
 <%= @report and @report.display %>

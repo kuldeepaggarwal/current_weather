@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resource :weather, only: [] do
     collection do
       get :random
+      get :location_wise
     end
   end
 end

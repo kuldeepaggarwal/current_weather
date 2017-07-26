@@ -10,4 +10,37 @@ feature 'Display of Weather' do
       expect(page).to have_content('Current weather for Berlin Mitte is: 17(metric)')
     end
   end
+
+  scenario 'with specified location' do
+    VCR.use_cassette('city_country_weather') do
+      visit root_path
+
+      fill_in :city, with: 'Berlin'
+      fill_in :country_code, with: 'DE'
+      click_on 'Show Weather'
+
+      expect(page).to have_content('Current weather for Berlin is: 17(metric)')
+    end
+  end
+
+  scenario 'with empty specified location' do
+    VCR.use_cassette('empty_location_weather') do
+      visit root_path
+
+      click_on 'Show Weather'
+
+      expect(page).to have_content('Unfortunately we could not find the location')
+    end
+  end
+
+  scenario 'with invalid specified location' do
+    VCR.use_cassette('invalid_location_weather') do
+      visit root_path
+
+      fill_in :city, with: 'dasdhaskduhasukjdas dughasdbkn'
+      click_on 'Show Weather'
+
+      expect(page).to have_content('Unfortunately we could not find the location')
+    end
+  end
 end
