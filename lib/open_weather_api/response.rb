@@ -23,6 +23,14 @@ module OpenWeatherAPI
       VALID_STATUSES.cover? data['cod']
     end
 
+    def invalid?
+      !valid?
+    end
+
+    def error_message
+      data['message']
+    end
+
     private
 
       attr_reader :data, :request_params
