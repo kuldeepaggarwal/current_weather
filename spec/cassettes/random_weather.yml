@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/weather?appid=FAKE_WEATHER_API_ACCESS_ID&lat=52.52&lon=13.405&units=metric
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.openweathermap.org
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Wed, 26 Jul 2017 11:21:46 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '501'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?lat=52.52&lon=13.4&units=metric"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":13.4,"lat":52.52},"weather":[{"id":500,"main":"Rain","description":"light
+        rain","icon":"10d"},{"id":301,"main":"Drizzle","description":"drizzle","icon":"09d"}],"base":"stations","main":{"temp":17,"pressure":1000,"humidity":93,"temp_min":17,"temp_max":17},"visibility":5000,"wind":{"speed":5.1,"deg":340},"clouds":{"all":75},"dt":1501064400,"sys":{"type":1,"id":4892,"message":0.0042,"country":"DE","sunrise":1501039060,"sunset":1501096031},"id":6545310,"name":"Berlin
+        Mitte","cod":200}'
+    http_version:
+  recorded_at: Wed, 26 Jul 2017 11:21:46 GMT
+recorded_with: VCR 3.0.3

@@ -1,24 +1,18 @@
-# README
+# CurrentWeather
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It is a simple application to show weather for random locations.
 
-Things you may want to cover:
+### Requirements:
 
-* Ruby version
+- Ruby 2.4.0
+- Bundler gem(`gem install bundler`)
+- Set `WEATHER_API_ACCESS_ID` environment variable with the Access-ID of OpenWeatherMap
 
-* System dependencies
 
-* Configuration
+1. clone the project
+2. run `bundle install`
 
-* Database creation
+### Test
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Setup Selenium to run the specs, please refer [Selenium](https://github.com/seleniumhq/selenium) docs.
+2. run `bundle exec rspec spec`
