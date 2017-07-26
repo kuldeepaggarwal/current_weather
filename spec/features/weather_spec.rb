@@ -1,6 +1,15 @@
 require 'rails_helper'
 
 feature 'Display of Weather' do
+  scenario 'without api key' do
+    visit root_path
+
+    fill_in :city, with: 'Berlin'
+    fill_in :country_code, with: 'DE'
+    allow(Rails.application.secrets).to receive(:weather_api_access_id).and_return(nil)
+    expect { click_on 'Show Weather'}.to raise_error(OpenWeatherAPI::Error, 'Please set WEATHER_API_ACCESS_ID env variable')
+  end
+
   scenario 'with random weather' do
     VCR.use_cassette('random_weather') do
       visit root_path
